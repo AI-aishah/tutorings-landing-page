@@ -1,0 +1,584 @@
+/* =========================
+   Arabic language and RTL flow
+========================== */
+
+html[dir="rtl"] {
+  --font-family-primary: "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] p,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] a,
+html[dir="rtl"] li,
+html[dir="rtl"] th,
+html[dir="rtl"] td {
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .centered,
+html[dir="rtl"] .section-header,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .learning-path-header,
+html[dir="rtl"] .testimonials-header,
+html[dir="rtl"] .outcomes-header,
+html[dir="rtl"] .educator-guide-intro {
+  text-align: center;
+}
+
+html[dir="rtl"] .skip-link {
+  right: var(--space-4);
+  left: auto;
+}
+
+/* Header and progress path */
+html[dir="rtl"] .navbar {
+  direction: ltr;
+}
+
+html[dir="rtl"] .navbar > .nav-links {
+  direction: rtl;
+}
+
+html[dir="rtl"] .navbar .nav-cta {
+  direction: ltr;
+}
+
+html[dir="rtl"] .navbar .nav-cta .button {
+  direction: rtl;
+}
+
+html[dir="rtl"] .page-progress-fill {
+  inset: 0 0 auto auto;
+  border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+}
+
+html[dir="rtl"] .page-progress-node {
+  right: auto;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+html[dir="rtl"] .brand .brand-walk-path {
+  right: 0.15rem;
+  left: auto;
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .navbar > .nav-links a::after {
+  transform-origin: right center;
+}
+
+html[dir="rtl"] .program-quiz-trigger-arrow,
+html[dir="rtl"] .why-need-arrow {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .hero-content .button-primary::after {
+  transform: rotate(-45deg);
+}
+
+html[dir="rtl"] .hero-content .button-primary:hover::after,
+html[dir="rtl"] .hero-content .button-primary:focus-visible::after {
+  transform: translateX(calc(var(--space-1) * -1)) rotate(-45deg);
+}
+
+/* Keep directional illustrations stable while localizing their labels. */
+html[dir="rtl"] .hero-path,
+html[dir="rtl"] .learning-story,
+html[dir="rtl"] .program-path-visual,
+html[dir="rtl"] .outcome-path,
+html[dir="rtl"] .destination-visual {
+  direction: ltr;
+}
+
+html[dir="rtl"] .hero-path-dot::before,
+html[dir="rtl"] .learning-story .story-speech,
+html[dir="rtl"] .learning-story .story-resource,
+html[dir="rtl"] .learning-story .story-overload-label,
+html[dir="rtl"] .learning-story .story-guide,
+html[dir="rtl"] .learning-story .story-milestone,
+html[dir="rtl"] .learning-story .story-stages {
+  direction: rtl;
+}
+
+/* Mirror the recognition story itself so its visual sequence follows Arabic:
+   1 frustration (right) -> 2 distraction -> 3 a clear path (left). */
+html[dir="rtl"] .learning-story {
+  background:
+    linear-gradient(
+      to left,
+      color-mix(in srgb, var(--color-page-bg) 88%, var(--color-surface)) 0 28%,
+      color-mix(in srgb, var(--color-surface-purple) 68%, var(--color-surface)) 28% 58%,
+      color-mix(in srgb, var(--color-surface-blue) 72%, var(--color-surface)) 58% 100%
+    );
+}
+
+html[dir="rtl"] .learning-story::before {
+  right: 28%;
+  left: auto;
+}
+
+html[dir="rtl"] .learning-story::after {
+  right: 58%;
+  left: auto;
+}
+
+html[dir="rtl"] .learning-story .story-stages {
+  direction: rtl;
+}
+
+html[dir="rtl"] .learning-story .story-stages li {
+  direction: rtl;
+}
+
+html[dir="rtl"] .story-speech-stuck {
+  right: 2.5%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-speech-stuck::after {
+  right: 34%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-speech-confident {
+  right: auto;
+  left: 2.5%;
+}
+
+html[dir="rtl"] .story-speech-confident::after {
+  right: auto;
+  left: 24%;
+}
+
+html[dir="rtl"] .story-resource-cloud {
+  right: 27%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-guide {
+  --story-guide-handoff-x: 42%;
+
+  right: 46%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-path {
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+html[dir="rtl"] .story-milestone-one {
+  right: 61%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-milestone-two {
+  right: 73%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-milestone-three {
+  right: 85%;
+  left: auto;
+}
+
+html[dir="rtl"] .story-character,
+html[dir="rtl"] .recognition.is-observed .story-character {
+  right: 9%;
+  left: auto;
+  transform: translateX(50%) rotate(4deg);
+}
+
+html[dir="rtl"] .recognition.is-visible .story-character {
+  animation-name: story-character-journey-rtl;
+}
+
+@keyframes story-character-journey-rtl {
+  0% {
+    right: 9%;
+    bottom: 5%;
+    opacity: 0;
+    transform: translateX(50%) translateY(var(--space-2)) rotate(4deg);
+  }
+
+  3%,
+  19% {
+    right: 9%;
+    bottom: 5%;
+    opacity: 1;
+    transform: translateX(50%) rotate(4deg);
+  }
+
+  25% {
+    right: 34%;
+    bottom: 5%;
+    opacity: 1;
+    transform: translateX(50%) rotate(0);
+  }
+
+  30% {
+    right: 35%;
+    transform: translateX(50%) rotate(0);
+  }
+
+  36% {
+    right: 35%;
+    transform: translateX(50%) rotate(3deg);
+  }
+
+  40% {
+    right: 35%;
+    transform: translateX(50%) rotate(-3deg);
+  }
+
+  46% {
+    right: 36%;
+    bottom: 5%;
+    transform: translateX(50%) rotate(2deg);
+  }
+
+  58% {
+    right: 36%;
+    bottom: 5%;
+    transform: translateX(50%) rotate(1deg);
+  }
+
+  64% {
+    right: 52%;
+    bottom: 6%;
+    transform: translateX(50%) rotate(0);
+  }
+
+  72% {
+    right: 63%;
+    bottom: 9%;
+  }
+
+  80%,
+  95% {
+    right: 75%;
+    bottom: 14%;
+    opacity: 1;
+    transform: translateX(50%) rotate(0);
+  }
+
+  100% {
+    right: 75%;
+    bottom: 14%;
+    opacity: 0;
+    transform: translateX(50%) translateY(calc(var(--space-2) * -1));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[dir="rtl"] .recognition.is-observed .story-character {
+    right: 75%;
+    left: auto;
+    transform: translateX(50%);
+  }
+}
+
+/* Programs */
+html[dir="rtl"] .program-quiz-trigger,
+html[dir="rtl"] .program-quiz-options button,
+html[dir="rtl"] .program-card > h3,
+html[dir="rtl"] .program-description,
+html[dir="rtl"] .program-benefits,
+html[dir="rtl"] .program-compare-details,
+html[dir="rtl"] .program-quiz-result {
+  text-align: right;
+}
+
+html[dir="rtl"] .program-quiz-trigger:hover .program-quiz-trigger-arrow,
+html[dir="rtl"] .program-quiz-trigger:focus-visible .program-quiz-trigger-arrow {
+  transform: translateX(calc(var(--space-1) * -1)) scaleX(-1);
+}
+
+/* Timeline */
+html[dir="rtl"] .milestone-summary,
+html[dir="rtl"] .milestone-example {
+  text-align: right;
+}
+
+html[dir="rtl"] .milestone-card {
+  transform: translateX(var(--space-4));
+}
+
+html[dir="rtl"] .milestone:nth-child(even) .milestone-card {
+  transform: translateX(calc(var(--space-4) * -1));
+}
+
+html[dir="rtl"] .milestone.is-active .milestone-card,
+html[dir="rtl"] .milestone.is-current .milestone-card,
+html[dir="rtl"] .milestone-card:hover {
+  transform: translateX(0);
+}
+
+/* Process and schedule */
+html[dir="rtl"] .process-card,
+html[dir="rtl"] .schedule-compare-header,
+html[dir="rtl"] .schedule-track li,
+html[dir="rtl"] .course-benefits-note {
+  text-align: right;
+}
+
+/* Benefits and Why Tutorings */
+html[dir="rtl"] .benefit-card,
+html[dir="rtl"] .benefit-micro,
+html[dir="rtl"] .why-need,
+html[dir="rtl"] .why-panel-copy,
+html[dir="rtl"] .why-panel-tool,
+html[dir="rtl"] .why-ielts-tabs .skill {
+  text-align: right;
+}
+
+html[dir="rtl"] .why-need:hover,
+html[dir="rtl"] .why-need:focus-visible {
+  transform: translateX(calc(var(--space-1) * -1));
+}
+
+html[dir="rtl"] .why-need[aria-selected="true"] {
+  transform: translateX(calc(var(--space-2) * -1));
+}
+
+html[dir="rtl"] .why-ielts-tabs .skill {
+  padding: var(--space-2) var(--space-6) var(--space-2) var(--space-3);
+}
+
+html[dir="rtl"] .why-ielts-tabs .skill::before {
+  right: var(--space-3);
+  left: auto;
+}
+
+/* Trust and comparison */
+html[dir="rtl"] .partner-strip,
+html[dir="rtl"] .trust-metrics-row,
+html[dir="rtl"] .educator-stamp-grid {
+  direction: rtl;
+}
+
+html[dir="rtl"] .comparison-table th,
+html[dir="rtl"] .comparison-table td {
+  text-align: right;
+}
+
+html[dir="rtl"] .comparison-table thead th:first-child,
+html[dir="rtl"] .comparison-table tbody th {
+  padding-right: var(--space-5);
+  padding-left: var(--space-4);
+}
+
+html[dir="rtl"] .comparison-table thead th:first-child {
+  border-radius: 0 var(--radius-md) 0 0;
+}
+
+html[dir="rtl"] .comparison-table thead th:last-child {
+  border-radius: var(--radius-md) 0 0 0;
+}
+
+html[dir="rtl"] .comparison-table tbody th::before {
+  margin-right: 0;
+  margin-left: var(--space-3);
+}
+
+/* Preserve the infinite marquee's geometry and localize each card itself. */
+html[dir="rtl"] .testimonial-marquee-viewport,
+html[dir="rtl"] .testimonial-marquee-track,
+html[dir="rtl"] .testimonial-marquee-group {
+  direction: ltr;
+}
+
+html[dir="rtl"] .marquee-testimonial {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .testimonial-marquee-toolbar p {
+  justify-content: center;
+  padding-inline: var(--space-3);
+  text-align: center;
+}
+
+html[dir="rtl"] .testimonial-marquee-group {
+  padding-right: 0;
+  padding-left: var(--space-4);
+}
+
+html[dir="rtl"] .testimonial-name,
+html[dir="rtl"] .testimonial-avatar,
+html[dir="rtl"] .partner-logo img,
+html[dir="rtl"] [data-cefr-code],
+html[dir="rtl"] .comparison-brand-mark {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* CEFR is a progression control: in Arabic A1 begins at the right and the
+   completed portion grows toward C2 on the left. */
+html[dir="rtl"] .cefr-range,
+html[dir="rtl"] .cefr-levels {
+  direction: rtl;
+}
+
+html[dir="rtl"] .cefr-range::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to left,
+    var(--color-brand-purple) 0 var(--cefr-progress),
+    var(--path-color-soft) var(--cefr-progress) 100%
+  );
+}
+
+html[dir="rtl"] .testimonial-name {
+  text-align: left;
+}
+
+html[dir="rtl"] .testimonial-meta,
+html[dir="rtl"] .testimonial-meta > span:last-child,
+html[dir="rtl"] .marquee-testimonial-rtl .testimonial-meta,
+html[dir="rtl"] .marquee-testimonial-rtl .testimonial-meta > span:last-child {
+  direction: ltr;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Future, CTA, and footer */
+html[dir="rtl"] .outcome-card,
+html[dir="rtl"] .cta-content,
+html[dir="rtl"] .footer-brand,
+html[dir="rtl"] .footer-nav,
+html[dir="rtl"] .footer-bottom {
+  text-align: right;
+}
+
+html[dir="rtl"] .footer-bottom p {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* FAQ chat stays in the requested bottom-right position. */
+html[dir="rtl"] .support-chat-panel {
+  direction: rtl;
+  transform-origin: 100% 100%;
+}
+
+html[dir="rtl"] .support-chat-message-bot {
+  align-self: flex-start;
+}
+
+html[dir="rtl"] .support-chat-message-user {
+  align-self: flex-end;
+}
+
+html[dir="rtl"] .support-chat-message-bot p {
+  border-top-right-radius: var(--space-1);
+  border-top-left-radius: var(--radius-md);
+}
+
+html[dir="rtl"] .support-chat-message-user p {
+  border-top-left-radius: var(--space-1);
+  border-top-right-radius: var(--radius-md);
+}
+
+html[dir="rtl"] .support-chat-faqs button {
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-7);
+  text-align: right;
+}
+
+html[dir="rtl"] .support-chat-faqs button::after {
+  right: auto;
+  left: var(--space-3);
+  content: "←";
+}
+
+html[dir="rtl"] .support-chat-faqs button:hover,
+html[dir="rtl"] .support-chat-faqs button:focus-visible {
+  transform: translateX(-2px);
+}
+
+html[dir="rtl"] .support-chat-form input {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .support-chat-form button svg {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 992px) {
+  html[dir="rtl"] .process-card:not(:last-child)::after {
+    right: calc(var(--space-6) + (var(--space-7) / 2));
+    left: auto;
+  }
+
+  html[dir="rtl"] .schedule-track::before {
+    right: calc(4.75rem + var(--space-3) + (var(--space-5) / 2));
+    left: auto;
+  }
+
+  html[dir="rtl"] .schedule-track li {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .timeline-line {
+    right: calc(var(--space-7) / 2);
+    left: auto;
+  }
+
+  html[dir="rtl"] .milestone-card,
+  html[dir="rtl"] .milestone:nth-child(even) .milestone-card {
+    transform: translateX(calc(var(--space-4) * -1));
+  }
+
+  html[dir="rtl"] .milestone.is-active .milestone-card,
+  html[dir="rtl"] .milestone.is-current .milestone-card {
+    transform: translateX(0);
+  }
+
+  html[dir="rtl"] .timeline-traveler::after {
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .comparison-typical-cell .comparison-mobile-label::after {
+    content: "المنصات المعتادة";
+  }
+}
+
+@media (max-width: 480px) {
+  html[dir="rtl"] .process-card:not(:last-child)::after {
+    right: calc(var(--space-5) + (var(--space-7) / 2));
+  }
+
+  html[dir="rtl"] .schedule-track::before {
+    right: calc(4rem + var(--space-2) + (var(--space-5) / 2));
+  }
+
+  html[dir="rtl"] .timeline-line {
+    right: calc(var(--space-6) / 2);
+  }
+
+  html[dir="rtl"] .testimonial-marquee-toolbar p {
+    padding-inline: var(--space-2);
+  }
+
+  html[dir="rtl"] .testimonial-marquee-group {
+    padding-left: var(--space-3);
+  }
+
+  html[dir="rtl"] .outcome-path {
+    right: calc(var(--space-7) / 2);
+    left: auto;
+  }
+}

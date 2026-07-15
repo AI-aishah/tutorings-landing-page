@@ -1,0 +1,1842 @@
+/* =========================
+   Hero entrance sequence
+========================== */
+
+.hero.is-animated .hero-content .eyebrow,
+.hero.is-animated .hero-content h1,
+.hero.is-animated .hero-content > p:not(.eyebrow),
+.hero.is-animated .hero-content .cluster,
+.hero.is-animated .hero-path-dot,
+.hero.is-animated .hero-path-logo,
+.hero.is-animated .hero-path-segment,
+.hero.is-animated .hero-path-lens-orbit,
+.hero.is-animated .trust-row {
+  opacity: 0;
+}
+
+.hero.is-animated .hero-content .eyebrow,
+.hero.is-animated .hero-content h1,
+.hero.is-animated .hero-content > p:not(.eyebrow),
+.hero.is-animated .hero-content .cluster,
+.hero.is-animated .trust-row {
+  transform: translateY(var(--space-4));
+}
+
+.hero.is-animated .hero-path-logo {
+  transform: translate(
+      calc(-50% + var(--hero-lens-x)),
+      calc(-50% + var(--hero-lens-y) + var(--space-4))
+    )
+    scale(0.96);
+}
+
+.hero.is-animated .hero-path-curve,
+.hero.is-animated .hero-path-finish {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.hero.is-animated .hero-path-segment {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.hero.is-animated.is-ready .hero-content .eyebrow {
+  animation: hero-reveal var(--duration-reveal) var(--ease-out) 80ms forwards;
+}
+
+.hero.is-animated.is-ready .hero-content h1 {
+  animation: hero-reveal 700ms var(--ease-out) 170ms forwards;
+}
+
+.hero.is-animated.is-ready .hero-content > p:not(.eyebrow) {
+  animation: hero-reveal var(--duration-reveal) var(--ease-out) 280ms forwards;
+}
+
+.hero.is-animated.is-ready .hero-content .cluster {
+  animation: hero-reveal var(--duration-reveal) var(--ease-out) 370ms forwards;
+}
+
+.hero.is-animated.is-ready .hero-path-curve {
+  animation:
+    hero-path-draw 1400ms var(--ease-in-out) 940ms forwards,
+    hero-clear-path-loop var(--hero-flow-duration) linear 2700ms infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-finish {
+  animation:
+    hero-path-draw 900ms var(--ease-out) 1320ms forwards,
+    hero-clear-finish-loop var(--hero-flow-duration) linear 2700ms infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-segment {
+  --hero-segment-loop-delay: 2700ms;
+
+  animation:
+    hero-segment-resolve 620ms var(--ease-out) 540ms forwards,
+    hero-segment-converge var(--hero-flow-duration) linear
+      var(--hero-segment-loop-delay) infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-stage-two {
+  --hero-segment-loop-delay: 2870ms;
+}
+
+.hero.is-animated.is-ready .hero-path-stage-three {
+  --hero-segment-loop-delay: 3040ms;
+}
+
+.hero.is-animated.is-ready .hero-path-guidance {
+  --hero-segment-loop-delay: 3180ms;
+
+  animation:
+    hero-segment-resolve 620ms var(--ease-out) 680ms forwards,
+    hero-segment-converge var(--hero-flow-duration) linear
+      var(--hero-segment-loop-delay) infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-logo {
+  animation: hero-logo-settle 650ms var(--ease-out) 760ms forwards;
+}
+
+.hero.is-animated.is-ready .hero-path-lens-orbit {
+  animation:
+    hero-lens-orbit-reveal 500ms var(--ease-out) 1050ms forwards,
+    hero-lens-orbit-spin 18s linear 1550ms infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-pulse {
+  animation: hero-path-pulse-loop var(--hero-flow-duration) linear 2700ms
+    infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-logo::before {
+  animation: hero-lens-merge-pulse var(--hero-flow-duration) var(--ease-in-out)
+    2700ms infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(1) {
+  --dot-start-x: calc(var(--space-2) * -1);
+  --dot-start-y: var(--space-3);
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 400ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 2700ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(2) {
+  --dot-start-x: var(--space-2);
+  --dot-start-y: calc(var(--space-2) * -1);
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 460ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 2790ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(3) {
+  --dot-start-x: calc(var(--space-1) * -1);
+  --dot-start-y: var(--space-2);
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 520ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 2880ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(4) {
+  --dot-start-x: var(--space-2);
+  --dot-start-y: var(--space-1);
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 580ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 2970ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(5) {
+  --dot-start-x: calc(var(--space-1) * -1);
+  --dot-start-y: var(--space-1);
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 640ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 3060ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .hero-path-dot:nth-child(6) {
+  --dot-start-x: var(--space-1);
+  --dot-start-y: 0;
+
+  animation:
+    hero-dot-reveal 520ms var(--ease-out) 700ms forwards,
+    hero-dot-converge var(--hero-flow-duration) var(--ease-in-out) 3150ms
+      infinite;
+}
+
+.hero.is-animated.is-ready .trust-row {
+  animation: hero-reveal var(--duration-reveal) var(--ease-out) 1580ms forwards;
+}
+
+@keyframes hero-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-path-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-segment-resolve {
+  to {
+    opacity: var(--segment-final-opacity);
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-segment-converge {
+  0%,
+  18% {
+    opacity: var(--segment-final-opacity);
+    stroke-dasharray: 1 0;
+    stroke-dashoffset: 0;
+  }
+
+  24% {
+    opacity: var(--segment-final-opacity);
+    stroke-dasharray: 0.22 0.78;
+    stroke-dashoffset: 0;
+  }
+
+  46% {
+    opacity: 0;
+    stroke-dasharray: 0.22 0.78;
+    stroke-dashoffset: -0.78;
+  }
+
+  78% {
+    opacity: 0;
+    stroke-dasharray: 1 0;
+    stroke-dashoffset: 1;
+  }
+
+  90%,
+  100% {
+    opacity: var(--segment-final-opacity);
+    stroke-dasharray: 1 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-logo-settle {
+  to {
+    opacity: 1;
+    transform: translate(
+        calc(-50% + var(--hero-lens-x)),
+        calc(-50% + var(--hero-lens-y))
+      )
+      scale(1);
+  }
+}
+
+@keyframes hero-lens-orbit-reveal {
+  to {
+    opacity: 0.24;
+  }
+}
+
+@keyframes hero-lens-orbit-spin {
+  to {
+    transform: translate(var(--hero-lens-x), var(--hero-lens-y)) rotate(360deg);
+  }
+}
+
+@keyframes hero-clear-path-loop {
+  0%,
+  7% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  12%,
+  52% {
+    opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  54% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  72%,
+  100% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-clear-finish-loop {
+  0%,
+  9% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  14%,
+  62% {
+    opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  64% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  76%,
+  100% {
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-path-pulse-loop {
+  0%,
+  74% {
+    opacity: 0;
+    stroke-dashoffset: 1;
+  }
+
+  77% {
+    opacity: 0.78;
+    stroke-dashoffset: 1;
+  }
+
+  92% {
+    opacity: 0;
+    stroke-dashoffset: -0.08;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes hero-lens-merge-pulse {
+  0%,
+  41%,
+  61%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  48% {
+    opacity: 0.94;
+    transform: scale(1.08);
+  }
+
+  55% {
+    opacity: 0.62;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes hero-dot-reveal {
+  from {
+    transform: translate(var(--dot-start-x, 0), var(--dot-start-y, 0));
+  }
+
+  to {
+    opacity: var(--dot-final-opacity);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-dot-converge {
+  0%,
+  14% {
+    opacity: var(--dot-final-opacity);
+    visibility: visible;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  20% {
+    opacity: var(--dot-final-opacity);
+    visibility: visible;
+    transform: translate3d(var(--dot-drift-x), var(--dot-drift-y), 0)
+      scale(1.05);
+  }
+
+  45% {
+    opacity: var(--dot-final-opacity);
+    visibility: visible;
+    transform: translate3d(
+        calc(
+          var(--dot-merge-x) + var(--hero-lens-x) - var(--hero-scatter-x) -
+            var(--dot-nudge-x)
+        ),
+        calc(
+          var(--dot-merge-y) + var(--hero-lens-y) - var(--hero-scatter-y) -
+            var(--dot-nudge-y) - var(--dot-scroll-y)
+        ),
+        0
+      )
+      scale(0.64);
+  }
+
+  49%,
+  78% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(
+        calc(
+          var(--dot-merge-x) + var(--hero-lens-x) - var(--hero-scatter-x) -
+            var(--dot-nudge-x)
+        ),
+        calc(
+          var(--dot-merge-y) + var(--hero-lens-y) - var(--hero-scatter-y) -
+            var(--dot-nudge-y) - var(--dot-scroll-y)
+        ),
+        0
+      )
+      scale(0.18);
+  }
+
+  84% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0, 0, 0) scale(0.72);
+  }
+
+  92%,
+  100% {
+    opacity: var(--dot-final-opacity);
+    visibility: visible;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* =========================
+   Recognition resolution
+========================== */
+
+.recognition.is-observed .recognition-copy > * {
+  opacity: 0;
+  transform: translateY(var(--space-4));
+}
+
+.recognition.is-observed.is-visible .recognition-copy > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+.recognition.is-observed.is-visible .recognition-copy > :nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.recognition.is-observed.is-visible .recognition-copy > :nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.recognition.is-observed.is-visible .recognition-copy > :nth-child(4) {
+  transition-delay: 240ms;
+}
+
+
+/* Recognition character journey */
+
+.recognition.is-playing .glitch-word {
+  animation: guessing-glitch-shift 2s steps(1, end) 400ms infinite;
+}
+
+.recognition.is-playing .glitch-word::before {
+  animation: guessing-glitch-upper 2s steps(1, end) 400ms infinite;
+}
+
+.recognition.is-playing .glitch-word::after {
+  animation: guessing-glitch-lower 2s steps(1, end) 460ms infinite;
+}
+
+@keyframes guessing-glitch-shift {
+  0%,
+  70%,
+  77%,
+  100% {
+    transform: translate(0);
+  }
+
+  71% {
+    transform: translateX(-1px) skewX(-1deg);
+  }
+
+  73% {
+    transform: translateX(1px);
+  }
+
+  75% {
+    transform: translateX(-0.5px);
+  }
+}
+
+@keyframes guessing-glitch-upper {
+  0%,
+  70%,
+  77%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+
+  71% {
+    opacity: 0.62;
+    transform: translate(-2px, -0.5px);
+  }
+
+  73% {
+    opacity: 0.32;
+    transform: translate(1.5px, 0);
+  }
+
+  76% {
+    opacity: 0;
+  }
+}
+
+@keyframes guessing-glitch-lower {
+  0%,
+  71%,
+  79%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+
+  72% {
+    opacity: 0.52;
+    transform: translate(2px, 0.5px);
+  }
+
+  75% {
+    opacity: 0.28;
+    transform: translate(-1.5px, 0);
+  }
+
+  78% {
+    opacity: 0;
+  }
+}
+
+.recognition.is-observed .story-speech,
+.recognition.is-observed .story-resource,
+.recognition.is-observed .story-overload-label,
+.recognition.is-observed .story-guide,
+.recognition.is-observed .story-path-node,
+.recognition.is-observed .story-milestone {
+  opacity: 0;
+}
+
+.recognition.is-observed .story-character {
+  bottom: 5%;
+  left: 9%;
+  opacity: 0;
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.recognition.is-observed .story-face-frustrated {
+  opacity: 1;
+}
+
+.recognition.is-observed .story-face-searching,
+.recognition.is-observed .story-face-confident {
+  opacity: 0;
+}
+
+.recognition.is-observed .story-path-progress {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+
+.recognition.is-visible .story-character {
+  animation: story-character-journey var(--story-duration) var(--ease-in-out)
+    infinite;
+}
+
+.recognition.is-visible .story-face-frustrated {
+  animation: story-face-frustrated var(--story-duration) var(--ease-standard)
+    infinite;
+}
+
+.recognition.is-visible .story-face-searching {
+  animation: story-face-searching var(--story-duration) var(--ease-standard)
+    infinite;
+}
+
+.recognition.is-visible .story-face-confident {
+  animation: story-face-confident var(--story-duration) var(--ease-standard)
+    infinite;
+}
+
+.recognition.is-visible .story-speech-stuck {
+  animation: story-speech-stuck var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-resource {
+  animation: story-resource-overload var(--story-duration) var(--ease-out)
+    infinite;
+}
+
+.recognition.is-visible .story-overload-label {
+  animation: story-overload-label var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-guide {
+  animation: story-guide-arrive var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-path-progress {
+  animation: story-path-draw var(--story-duration) var(--ease-in-out) infinite;
+}
+
+.recognition.is-visible .story-path-node-one,
+.recognition.is-visible .story-milestone-one {
+  animation: story-path-point-one var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-path-node-two,
+.recognition.is-visible .story-milestone-two {
+  animation: story-path-point-two var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-path-node-three,
+.recognition.is-visible .story-milestone-three {
+  animation: story-path-point-three var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-speech-confident {
+  animation: story-final-reveal var(--story-duration) var(--ease-out) infinite;
+}
+
+.recognition.is-visible .story-stages li:first-child {
+  animation: story-stage-one var(--story-duration) var(--ease-standard) infinite;
+}
+
+.recognition.is-visible .story-stages li:nth-child(2) {
+  animation: story-stage-two var(--story-duration) var(--ease-standard) infinite;
+}
+
+.recognition.is-visible .story-stages li:last-child {
+  animation: story-stage-three var(--story-duration) var(--ease-standard)
+    infinite;
+}
+
+.recognition.is-visible:not(.is-playing) .learning-story * {
+  animation-play-state: paused;
+}
+
+@keyframes story-character-journey {
+  0% {
+    bottom: 5%;
+    left: 9%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(var(--space-2)) rotate(-4deg);
+  }
+
+  3%,
+  19% {
+    bottom: 5%;
+    left: 9%;
+    opacity: 1;
+    transform: translateX(-50%) rotate(-4deg);
+  }
+
+  25% {
+    bottom: 5%;
+    left: 34%;
+    opacity: 1;
+    transform: translateX(-50%) rotate(0);
+  }
+
+  30% {
+    left: 35%;
+    transform: translateX(-50%) rotate(0);
+  }
+
+  36% {
+    left: 35%;
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+  40% {
+    left: 35%;
+    transform: translateX(-50%) rotate(3deg);
+  }
+
+  46% {
+    bottom: 5%;
+    left: 36%;
+    transform: translateX(-50%) rotate(-2deg);
+  }
+
+  58% {
+    bottom: 5%;
+    left: 36%;
+    transform: translateX(-50%) rotate(-1deg);
+  }
+
+  64% {
+    bottom: 6%;
+    left: 52%;
+    transform: translateX(-50%) rotate(0);
+  }
+
+  72% {
+    bottom: 9%;
+    left: 63%;
+  }
+
+  80%,
+  95% {
+    bottom: 14%;
+    left: 75%;
+    opacity: 1;
+    transform: translateX(-50%) rotate(0);
+  }
+
+  100% {
+    bottom: 14%;
+    left: 75%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(var(--space-2) * -1));
+  }
+}
+
+@keyframes story-face-frustrated {
+  0%,
+  19% {
+    opacity: 1;
+  }
+
+  23%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes story-face-searching {
+  0%,
+  19% {
+    opacity: 0;
+  }
+
+  23%,
+  50% {
+    opacity: 1;
+  }
+
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes story-face-confident {
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  55%,
+  96% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes story-speech-stuck {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--space-2)) scale(0.96);
+  }
+
+  4%,
+  18% {
+    opacity: 1;
+    transform: none;
+  }
+
+  22%,
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--space-2) * -1)) scale(0.98);
+  }
+}
+
+@keyframes story-resource-overload {
+  0%,
+  21% {
+    opacity: 0;
+    transform: translateY(var(--space-3)) scale(0.78)
+      rotate(var(--resource-rotate));
+  }
+
+  27%,
+  47% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--resource-rotate));
+  }
+
+  50% {
+    opacity: 0.72;
+    transform: translateY(calc(var(--space-1) * -1)) scale(1.03)
+      rotate(var(--resource-rotate));
+  }
+
+  54%,
+  100% {
+    opacity: 0;
+    transform: translateY(var(--space-2)) scale(0.9)
+      rotate(var(--resource-rotate));
+  }
+}
+
+@keyframes story-overload-label {
+  0%,
+  26% {
+    opacity: 0;
+    transform: translate(-50%, -35%) scale(0.92);
+  }
+
+  30%,
+  48% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  53%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -65%) scale(0.96);
+  }
+}
+
+@keyframes story-guide-arrive {
+  0%,
+  48% {
+    opacity: 0;
+    transform: translateY(var(--space-3)) scale(0.92);
+  }
+
+  52%,
+  58% {
+    opacity: 1;
+    transform: none;
+  }
+
+  62%,
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--space-1) * -1)) scale(0.94);
+  }
+}
+
+@keyframes story-path-draw {
+  0%,
+  56% {
+    opacity: 0;
+    stroke-dashoffset: 1;
+  }
+
+  58% {
+    opacity: 1;
+    stroke-dashoffset: 1;
+  }
+
+  80%,
+  95% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  99% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes story-path-point-one {
+  0%,
+  62% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  65%,
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes story-path-point-two {
+  0%,
+  68% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  71%,
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes story-path-point-three {
+  0%,
+  77% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  80%,
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes story-final-reveal {
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateY(var(--space-3)) scale(0.96);
+  }
+
+  83%,
+  95% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--space-1) * -1)) scale(0.98);
+  }
+}
+
+@keyframes story-stage-one {
+  0%,
+  21% {
+    color: var(--color-brand-purple);
+  }
+
+  25%,
+  100% {
+    color: var(--color-text-muted);
+  }
+}
+
+@keyframes story-stage-two {
+  0%,
+  21% {
+    color: var(--color-text-muted);
+  }
+
+  25%,
+  51% {
+    color: var(--color-brand-purple);
+  }
+
+  55%,
+  100% {
+    color: var(--color-text-muted);
+  }
+}
+
+@keyframes story-stage-three {
+  0%,
+  51% {
+    color: var(--color-text-muted);
+  }
+
+  55%,
+  96% {
+    color: var(--color-brand-purple);
+  }
+
+  100% {
+    color: var(--color-text-muted);
+  }
+}
+
+/* =========================
+   Timeline reveals
+========================== */
+
+@keyframes timeline-traveler-bob {
+  from {
+    transform: translate(-50%, -72%);
+  }
+
+  to {
+    transform: translate(-50%, -78%);
+  }
+}
+
+@keyframes timeline-leg-left {
+  from {
+    transform: rotate(10deg);
+  }
+
+  to {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes timeline-leg-right {
+  from {
+    transform: rotate(-10deg);
+  }
+
+  to {
+    transform: rotate(12deg);
+  }
+}
+
+.timeline.is-observed .milestone:not(.is-revealed):not(.is-active) .milestone-card {
+  opacity: 0;
+  transform: translateY(var(--space-5));
+}
+
+.timeline.is-observed .milestone.is-revealed .milestone-card {
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* =========================
+   Process and feature reveals
+========================== */
+
+@keyframes ielts-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-1));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes why-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes schedule-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes testimonial-marquee-scroll {
+  to {
+    transform: translateX(var(--testimonial-loop-distance, -50%));
+  }
+}
+
+@keyframes golden-guarantee-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-180%) skewX(-16deg);
+  }
+
+  22% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(620%) skewX(-16deg);
+  }
+}
+
+[data-reveal-section].is-observed .section-header,
+[data-reveal-section].is-observed [data-reveal-item] {
+  opacity: 0;
+  transform: translateY(var(--space-5));
+}
+
+[data-reveal-section].is-observed .process-connector-path {
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+
+[data-reveal-section].is-visible .section-header,
+[data-reveal-section].is-visible [data-reveal-item] {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+[data-reveal-section].is-visible .process-card:hover,
+[data-reveal-section].is-visible .feature-card:hover,
+[data-reveal-section].is-visible .program-card:hover,
+[data-reveal-section].is-visible .benefit-card:hover {
+  transform: translateY(-2px);
+}
+
+[data-reveal-section].is-visible .section-header {
+  transition-delay: 40ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(1) {
+  transition-delay: 140ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(2) {
+  transition-delay: 220ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(4) {
+  transition-delay: 380ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(5) {
+  transition-delay: 460ms;
+}
+
+[data-reveal-section].is-visible [data-reveal-item]:nth-child(6) {
+  transition-delay: 540ms;
+}
+
+.trust-recognition.is-observed .educator-stamp {
+  opacity: 0;
+  transform: perspective(44rem) translateY(calc(var(--space-4) * -1)) rotateX(-18deg) rotateZ(-2deg) scale(0.94);
+}
+
+.trust-recognition.is-visible .educator-stamp {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 480ms var(--ease-out),
+    transform 680ms cubic-bezier(0.16, 1.22, 0.3, 1),
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.trust-recognition.is-observed .educator-stamp-mark {
+  opacity: 0;
+  transform: rotate(-16deg) scale(1.35);
+}
+
+.trust-recognition.is-visible .educator-stamp-mark {
+  opacity: 1;
+  transform: rotate(-6deg) scale(1);
+  transition:
+    opacity 260ms var(--ease-out),
+    transform 560ms cubic-bezier(0.18, 1.3, 0.36, 1);
+}
+
+.trust-recognition.is-visible .educator-stamp:nth-child(1),
+.trust-recognition.is-visible .educator-stamp:nth-child(1) .educator-stamp-mark {
+  transition-delay: 340ms;
+}
+
+.trust-recognition.is-visible .educator-stamp:nth-child(2),
+.trust-recognition.is-visible .educator-stamp:nth-child(2) .educator-stamp-mark {
+  transition-delay: 420ms;
+}
+
+.trust-recognition.is-visible .educator-stamp:nth-child(3),
+.trust-recognition.is-visible .educator-stamp:nth-child(3) .educator-stamp-mark {
+  transition-delay: 500ms;
+}
+
+.trust-recognition.is-visible .educator-stamp:nth-child(4),
+.trust-recognition.is-visible .educator-stamp:nth-child(4) .educator-stamp-mark {
+  transition-delay: 580ms;
+}
+
+.trust-recognition.is-visible .educator-stamp:hover {
+  border-color: color-mix(in srgb, var(--stamp-color) 48%, transparent);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--stamp-color) 12%, transparent);
+  transform: translateY(calc(var(--space-1) * -1));
+}
+
+.programs.is-observed .program-path-accent {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.programs.is-observed .program-path-node {
+  opacity: 0;
+  transform: scale(0.45);
+}
+
+.programs .program-card.is-path-visible:nth-child(1) .program-path-accent {
+  animation: program-path-draw 760ms var(--ease-in-out) 120ms forwards;
+}
+
+.programs .program-card.is-path-visible:nth-child(2) .program-path-accent {
+  animation: program-path-draw 920ms var(--ease-in-out) 160ms forwards;
+}
+
+.programs .program-card.is-path-visible:nth-child(3) .program-path-accent {
+  animation: program-path-draw 820ms var(--ease-in-out) 200ms forwards;
+}
+
+.programs .program-card.is-path-visible:nth-child(1) .program-path-node {
+  animation: program-node-arrive 620ms var(--ease-out) 800ms forwards;
+}
+
+.programs .program-card.is-path-visible:nth-child(2) .program-path-node {
+  animation: program-node-arrive 620ms var(--ease-out) 1020ms forwards;
+}
+
+.programs .program-card.is-path-visible:nth-child(3) .program-path-node {
+  animation: program-node-arrive 620ms var(--ease-out) 1020ms forwards;
+}
+
+@keyframes program-path-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes program-node-arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.65);
+    filter: drop-shadow(0 0 var(--space-2) currentColor);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+@keyframes program-recommendation-ring {
+  0%, 100% {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  30%, 65% {
+    box-shadow:
+      0 0 0 var(--space-2) color-mix(in srgb, var(--program-accent) 20%, transparent),
+      var(--shadow-floating);
+  }
+}
+
+#course-benefits.is-visible .benefit-featured {
+  transition-delay: 120ms;
+}
+
+#course-benefits.is-visible .benefit-roadmap {
+  transition-delay: 200ms;
+}
+
+#course-benefits.is-visible .benefit-progress {
+  transition-delay: 280ms;
+}
+
+.comparison-section.is-observed .comparison-table tbody tr {
+  opacity: 0;
+  transform: translateY(var(--space-3));
+}
+
+.comparison-section.is-visible .comparison-table tbody tr {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+  transition-delay: var(--comparison-row-delay, 0ms);
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(1) {
+  --comparison-row-delay: 220ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(2) {
+  --comparison-row-delay: 280ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(3) {
+  --comparison-row-delay: 340ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(4) {
+  --comparison-row-delay: 400ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(5) {
+  --comparison-row-delay: 460ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(6) {
+  --comparison-row-delay: 520ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(7) {
+  --comparison-row-delay: 580ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(8) {
+  --comparison-row-delay: 640ms;
+}
+
+.comparison-section.is-visible .comparison-table tbody tr:nth-child(9) {
+  --comparison-row-delay: 700ms;
+}
+
+.comparison-section.is-observed .comparison-check {
+  opacity: 0;
+  transform: scale(0.68);
+}
+
+.comparison-section.is-observed .comparison-check path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.comparison-section.is-visible .comparison-check {
+  animation: comparison-check-pop 360ms var(--ease-out) both;
+  animation-delay: calc(var(--comparison-row-delay, 0ms) + 110ms);
+}
+
+.comparison-section.is-visible .comparison-check path {
+  animation: comparison-check-draw 380ms var(--ease-out) both;
+  animation-delay: calc(var(--comparison-row-delay, 0ms) + 220ms);
+}
+
+@keyframes comparison-check-pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes comparison-check-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.success-stories.is-visible .testimonial-marquee {
+  transition-delay: 120ms;
+}
+
+[data-reveal-section].is-visible .process-connector-path {
+  animation: process-connector-draw 1100ms var(--ease-in-out) 220ms forwards;
+}
+
+@keyframes process-connector-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =========================
+   Outcome and destination paths
+========================== */
+
+.future-vision.is-observed .outcome-path-progress,
+.final-cta.is-observed .destination-line path {
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+
+.final-cta.is-observed .destination-node {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.future-vision.is-visible .outcome-path-progress {
+  animation: outcome-path-draw 1400ms var(--ease-in-out) 280ms forwards;
+}
+
+.final-cta.is-visible .destination-line path {
+  animation: destination-line-draw 1300ms var(--ease-in-out) 220ms forwards;
+}
+
+.final-cta.is-visible .destination-node {
+  animation:
+    destination-node-arrive 650ms var(--ease-out) 900ms forwards,
+    destination-node-heartbeat 2.4s var(--ease-in-out) 1550ms infinite;
+}
+
+.final-cta.is-visible .destination-node::before {
+  animation: destination-ring 2.4s var(--ease-out) 1650ms infinite;
+}
+
+.final-cta.is-visible .destination-node::after {
+  animation: destination-ring 2.4s var(--ease-out) 1850ms infinite;
+}
+
+.cta-confetti.is-bursting i {
+  animation: cta-confetti-burst 780ms var(--ease-out) forwards;
+}
+
+@keyframes outcome-path-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes destination-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes destination-node-arrive {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes destination-node-heartbeat {
+  0%, 12%, 28%, 100% {
+    box-shadow:
+      var(--path-glow),
+      var(--shadow-floating);
+  }
+
+  6%, 19% {
+    box-shadow:
+      0 0 2.5rem var(--path-color-medium),
+      var(--shadow-floating);
+  }
+}
+
+@keyframes destination-ring {
+  0%, 30% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  8% {
+    opacity: 0.75;
+  }
+
+  28%, 100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes cta-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+
+  12% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--confetti-x-end)),
+        calc(-50% + var(--confetti-y-end))
+      )
+      scale(0.9)
+      rotate(var(--confetti-rotation));
+  }
+}
+
+/* =========================
+   Reduced motion
+========================== */
+
+.support-chat-trigger-dot {
+  animation: support-chat-dot-pulse 2400ms var(--ease-in-out) infinite;
+}
+
+.support-chat-panel.is-open {
+  animation: support-chat-panel-enter 260ms var(--ease-out) both;
+}
+
+.support-chat-message {
+  animation: support-chat-message-enter 260ms var(--ease-out) both;
+}
+
+@keyframes support-chat-dot-pulse {
+  50% {
+    box-shadow:
+      0 3px 8px color-mix(in srgb, var(--color-success) 34%, transparent),
+      0 0 0 5px color-mix(in srgb, var(--color-success) 12%, transparent);
+  }
+}
+
+@keyframes support-chat-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-3)) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes support-chat-message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .support-chat-trigger-dot,
+  .support-chat-panel.is-open,
+  .support-chat-message {
+    animation: none;
+  }
+  .glitch-word {
+    text-shadow: none;
+    animation: none;
+  }
+
+  .glitch-word::before,
+  .glitch-word::after {
+    opacity: 0;
+    animation: none;
+  }
+
+  .schedule-panel,
+  .testimonial-marquee-track,
+  .ielts-skill-panel,
+  .why-panel,
+  .feature-guarantee:hover::after {
+    animation: none;
+  }
+
+  .hero.is-animated .hero-content .eyebrow,
+  .hero.is-animated .hero-content h1,
+  .hero.is-animated .hero-content > p:not(.eyebrow),
+  .hero.is-animated .hero-content .cluster,
+  .hero.is-animated .hero-path-dot,
+  .hero.is-animated .hero-path-logo,
+  .hero.is-animated .hero-path-segment,
+  .hero.is-animated .hero-path-lens-orbit,
+  .hero.is-animated .trust-row {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .hero.is-animated .hero-path-logo {
+    transform: translate(
+      calc(-50% + var(--hero-lens-x)),
+      calc(-50% + var(--hero-lens-y))
+    );
+  }
+
+  .hero.is-animated .hero-path-logo::before {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .hero.is-animated .hero-path-lens-orbit {
+    opacity: 0.24;
+    transform: none;
+  }
+
+  .hero.is-animated .hero-path-pulse {
+    opacity: 0;
+    animation: none !important;
+  }
+
+  .hero.is-animated .hero-path-dot {
+    opacity: var(--dot-final-opacity);
+  }
+
+  .hero.is-animated .hero-path-segment {
+    opacity: var(--segment-final-opacity);
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .hero.is-animated .hero-path-curve,
+  .hero.is-animated .hero-path-finish {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+
+  .recognition.is-observed .recognition-copy > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .recognition.is-observed .story-speech,
+  .recognition.is-observed .story-resource,
+  .recognition.is-observed .story-overload-label,
+  .recognition.is-observed .story-guide,
+  .recognition.is-observed .story-path-node,
+  .recognition.is-observed .story-milestone,
+  .recognition.is-observed .story-character,
+  .recognition.is-observed .story-face {
+    animation: none;
+    transition: none;
+  }
+
+  .recognition.is-observed .story-character {
+    bottom: 14%;
+    left: 75%;
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+
+  .recognition.is-observed .story-speech-stuck {
+    opacity: 0.72;
+  }
+
+  .recognition.is-observed .story-speech-confident,
+  .recognition.is-observed .story-guide,
+  .recognition.is-observed .story-path-node,
+  .recognition.is-observed .story-milestone {
+    opacity: 1;
+    transform: none;
+  }
+
+  .recognition.is-observed .story-guide {
+    transform: translateX(var(--story-guide-handoff-x)) scale(0.9);
+  }
+
+  .recognition.is-observed .story-resource {
+    opacity: 0.28;
+    transform: rotate(var(--resource-rotate));
+  }
+
+  .recognition.is-observed .story-overload-label {
+    opacity: 0.72;
+    transform: translate(-50%, -50%);
+  }
+
+  .recognition.is-observed .story-path-progress {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .recognition.is-observed .story-face-frustrated,
+  .recognition.is-observed .story-face-searching {
+    opacity: 0;
+  }
+
+  .recognition.is-observed .story-face-confident {
+    opacity: 1;
+  }
+
+  .recognition.is-observed .story-stages li {
+    animation: none;
+  }
+
+  .recognition.is-observed .story-stages li:last-child {
+    color: var(--color-brand-purple);
+  }
+
+  .timeline .milestone-card,
+  .timeline.is-observed .milestone:not(.is-revealed) .milestone-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .timeline .timeline-progress,
+  .timeline .milestone-number,
+  .timeline .timeline-traveler,
+  .timeline .timeline-traveler-figure,
+  .timeline .traveler-leg,
+  .timeline .milestone-example {
+    animation: none;
+    transition: none;
+  }
+
+  [data-reveal-section].is-observed .section-header,
+  [data-reveal-section].is-observed [data-reveal-item] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .trust-recognition.is-observed .educator-stamp-mark,
+  .trust-recognition.is-visible .educator-stamp-mark {
+    opacity: 1;
+    transform: rotate(-6deg);
+    transition: none;
+  }
+
+  .programs.is-observed .program-path-accent {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+
+  .programs.is-observed .program-path-node {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .program-card.is-recommended {
+    animation: none;
+  }
+
+  .comparison-section.is-visible.is-observed .comparison-table tbody tr {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .comparison-section.is-observed .comparison-check,
+  .comparison-section.is-visible .comparison-check {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .comparison-section.is-observed .comparison-check path,
+  .comparison-section.is-visible .comparison-check path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .success-stories.is-visible .testimonial-marquee {
+    transition-delay: 0ms;
+  }
+
+  .testimonial-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .testimonial-marquee-viewport {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+    scroll-snap-type: x mandatory;
+  }
+
+  .testimonial-marquee-track {
+    transform: none;
+  }
+
+  .marquee-testimonial {
+    scroll-snap-align: start;
+  }
+
+  [data-reveal-section].is-observed .process-connector-path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .future-vision.is-observed .outcome-path-progress,
+  .final-cta.is-observed .destination-line path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .final-cta.is-observed .destination-node {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .final-cta .destination-node::before,
+  .final-cta .destination-node::after,
+  .cta-confetti {
+    display: none;
+  }
+}

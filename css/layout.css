@@ -1,0 +1,139 @@
+/* =========================
+   Containers
+========================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding-desktop);
+}
+
+.text-container {
+  width: 100%;
+  max-width: var(--container-text-width);
+}
+
+.hero-text-container {
+  width: 100%;
+  max-width: var(--container-hero-width);
+}
+
+/* =========================
+   Sections
+========================== */
+
+.section {
+  position: relative;
+  padding-block: var(--section-spacing-desktop);
+}
+
+.section-header {
+  max-width: var(--container-text-width);
+}
+
+.section-header.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-header > * + * {
+  margin-top: var(--space-4);
+}
+
+.section-copy {
+  max-width: var(--container-text-width);
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  background: var(--color-border-light);
+  border: 0;
+}
+
+/* =========================
+   Shared layouts
+========================== */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* =========================
+   Typography helpers
+========================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  color: var(--color-brand-purple);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: var(--space-6);
+  height: 2px;
+  flex: 0 0 auto;
+
+  background: var(--gradient-brand);
+  border-radius: var(--radius-pill);
+
+  content: "";
+}
+
+.eyebrow.centered::before,
+.eyebrow--no-line::before {
+  display: none;
+}
+
+.gradient-text {
+  background: var(--gradient-brand);
+  color: var(--color-brand-purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   Utilities
+========================== */
+
+.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+  max-width: none;
+}
